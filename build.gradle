@@ -1,0 +1,30 @@
+plugins {
+  id 'application'
+  id 'org.openjfx.javafxplugin' version '0.1.0'
+  id 'org.beryx.jlink' version '2.24.4'
+}
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = "21"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+application {
+    mainClass = "ru.hheli.MainApp"
+    mainModule = "testdataloader"
+}
+
+jlink {
+    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+    launcher {
+        name = 'testdataloader'
+    }
+}
+dependencies {
+  implementation 'org.apache.logging.log4j:log4j-api:2.23.1'
+  implementation 'org.apache.logging.log4j:log4j-core:2.23.1'
+}
