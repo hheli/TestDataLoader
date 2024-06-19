@@ -5,14 +5,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 public class MainApp extends Application {
 
+    protected static final Logger logger = LogManager.getLogger(MainApp.class);
+
     @Override
     public void start(Stage stage) throws Exception {
-        System.out.println("start method "+ Thread.currentThread().getName());
+        logger.debug(Thread.currentThread().getName());
         FXMLLoader loader=new FXMLLoader();
         loader.setLocation(getClass().getResource("scene.fxml"));
         Parent root=loader.load();
@@ -35,7 +38,7 @@ public class MainApp extends Application {
     }
     @Override
     public void init() throws Exception {
-        System.out.println("init method "+ Thread.currentThread().getName());
+        logger.debug("init method "+ Thread.currentThread().getName());
         System.out.println("getRaw(): "+ this.getParameters().getRaw());
         System.out.println("getNamed(): "+ this.getParameters().getNamed().keySet());
         System.out.println("getUnnamed(): "+ this.getParameters().getUnnamed());
