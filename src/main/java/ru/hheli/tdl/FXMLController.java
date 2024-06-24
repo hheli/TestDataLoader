@@ -1,4 +1,4 @@
-package ru.hheli;
+package ru.hheli.tdl;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -34,9 +34,17 @@ public class FXMLController {
         Scene scene=primaryStage.getScene();
         System.out.println(scene.getX() +" "+ scene.getY());
         button1.setText("pressed at"+primaryStage.getX());
+        newWindow(primaryStage);
 
     }
     public void setPrimaryStage(Stage primaryStage){
         this.primaryStage=primaryStage;
+    }
+    public void newWindow(Stage parent){
+        Stage window=new Stage();
+        window.setTitle("новое окно");
+        window.show();
+
+       
     }
 }

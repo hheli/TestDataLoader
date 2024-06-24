@@ -14,8 +14,12 @@ javafx {
 }
 
 application {
-    mainClass = "ru.hheli.MainApp"
-    mainModule = "testdataloader"
+    mainClass = "ru.hheli.tdl.MainApp"
+    mainModule = "ru.hheli.tdl"
+}
+dependencies{
+    // https://mvnrepository.com/artifact/de.jensd/fontawesomefx-fontawesome
+implementation group: 'de.jensd', name: 'fontawesomefx-fontawesome', version: '4.7.0-9.1.2'
 }
 
 jlink {
@@ -24,3 +28,5 @@ jlink {
         name = 'testdataloader'
     }
 }
+
+
